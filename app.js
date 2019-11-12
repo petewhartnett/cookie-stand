@@ -53,24 +53,24 @@ h1.textContent = "Store Cookie Count";
 article.appendChild(h1);
 
 //function begin for displaying average cookies each hour each location
-function display(location){
+function display(location) {
 
-var p = document.createElement('p');
-p.textContent = location.location;
-article.appendChild(p);
+    var p = document.createElement('p');
+    p.textContent = location.location;
+    article.appendChild(p);
 
-var ul = document.createElement('ul');
-article.appendChild(ul);
-//total counts the total of the cookies per day
-var total = 0;
-//Seattle hours print with the cookies for that hour based on random number * avg cookies
-for (var i = 0; i < hours.length; i++) {
-    var li = document.createElement('li');
-    li.textContent = hours[i] + '-' + Math.ceil((location.maxCustomers, location.minCustomers) * location.avgCookies) + ' cookies';
-    total += Math.ceil(random(location.maxCustomers, location.minCustomers) * location.avgCookies);
-    ul.appendChild(li);
-}
-li.textContent = 'TOTAL = ' + total;
+    var ul = document.createElement('ul');
+    article.appendChild(ul);
+    //total counts the total of the cookies per day
+    var total = 0;
+    //Seattle hours print with the cookies for that hour based on random number * avg cookies
+    for (var i = 0; i < hours.length; i++) {
+        var li = document.createElement('li');
+        li.textContent = hours[i] + '-' + Math.ceil(random(location.maxCustomers, location.minCustomers) * location.avgCookies) + ' cookies';
+        total += Math.ceil(random(location.maxCustomers, location.minCustomers) * location.avgCookies);
+        ul.appendChild(li);
+    }
+    li.textContent = 'TOTAL = ' + total;
 }
 
 
