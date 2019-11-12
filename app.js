@@ -51,9 +51,12 @@ parentElem.appendChild(article);
 var h1 = document.createElement('h1');
 h1.textContent = "Store Cookie Count";
 article.appendChild(h1);
- 
+
+//function begin for displaying average cookies each hour each location
+function display(location){
+
 var p = document.createElement('p');
-p.textContent = Seattle.location;
+p.textContent = location.location;
 article.appendChild(p);
 
 var ul = document.createElement('ul');
@@ -63,85 +66,16 @@ var total = 0;
 //Seattle hours print with the cookies for that hour based on random number * avg cookies
 for (var i = 0; i < hours.length; i++) {
     var li = document.createElement('li');
-    li.textContent = hours[i] + '-' + Math.ceil(random(Seattle.maxCustomers, Seattle.minCustomers) * Seattle.avgCookies) + ' cookies';
-    total += Math.ceil(random(Seattle.maxCustomers, Seattle.minCustomers) * Seattle.avgCookies);
+    li.textContent = hours[i] + '-' + Math.ceil((location.maxCustomers, location.minCustomers) * location.avgCookies) + ' cookies';
+    total += Math.ceil(random(location.maxCustomers, location.minCustomers) * location.avgCookies);
     ul.appendChild(li);
 }
-li.textContent= 'TOTAL = ' + total;
-
-
-//Tokyo
-
-var p2 = document.createElement('p2');
-p2.textContent = "Tokyo";
-article.appendChild(p2);
-
-var ul2 = document.createElement('ul2');
-article.appendChild(ul2);
-var total2 = 0;
-for (var i = 0; i < hours.length; i++) {
-    var li = document.createElement('li');
-    li.textContent = hours[i] + '-' + Math.ceil(random(Tokyo.maxCustomers, Tokyo.minCustomers) * Tokyo.avgCookies) + ' cookies';
-    total2 += Math.ceil(random(Tokyo.maxCustomers, Tokyo.minCustomers) * Tokyo.avgCookies);
-    ul2.appendChild(li);
-
-}
-li.textContent= 'TOTAL = ' + total2;
-
-//Dubai
-
-var p3 = document.createElement('p3');
-p3.textContent = Dubai.location;
-article.appendChild(p3);
-
-var ul3 = document.createElement('ul3');
-article.appendChild(ul3);
-
-var total3 = 0;
-for (var i = 0; i < hours.length; i++) {
-    var li = document.createElement('li');
-    li.textContent = hours[i] + '-' + Math.ceil(random(Dubai.maxCustomers, Dubai.minCustomers) * Dubai.avgCookies )+ ' cookies';
-    total3 += Math.ceil(random(Dubai.maxCustomers, Dubai.minCustomers) * Dubai.avgCookies);
-    ul3.appendChild(li);
+li.textContent = 'TOTAL = ' + total;
 }
 
-li.textContent= 'TOTAL = ' + total3;
 
-//Paris
-
-var p4 = document.createElement('p4');
-p4.textContent = Paris.location;
-article.appendChild(p4);
-
-var ul4 = document.createElement('ul4');
-article.appendChild(ul4);
-
-var total4 = 0;
-
-for (var i = 0; i < hours.length; i++) {
-    var li = document.createElement('li');
-    li.textContent = hours[i] + '-' + Math.ceil(random(Paris.maxCustomers, Paris.minCustomers) * Paris.avgCookies) + ' cookies';
-    total4 += Math.ceil(random(Paris.maxCustomers, Paris.minCustomers) * Paris.avgCookies);
-    ul4.appendChild(li);
-    
-}
-li.textContent= 'TOTAL = ' + total4;
-
-// Lima 
-
-var p5 = document.createElement('p5');
-p5.textContent = Lima.location;
-article.appendChild(p5);
-
-var ul5 = document.createElement('ul5');
-article.appendChild(ul5);
-var total5 = 0;
-
-for (var i = 0; i < hours.length; i++) {
-    var li = document.createElement('li');
-    li.textContent = hours[i] + '-' + Math.ceil(random(Lima.maxCustomers, Lima.minCustomers) * Lima.avgCookies) + ' cookies';
-    total5 += Math.ceil(random(Lima.maxCustomers, Lima.minCustomers) * Lima.avgCookies);
-    ul5.appendChild(li);
-
-}
-li.textContent= 'TOTAL = ' + total5;
+display(Seattle);
+display(Lima);
+display(Tokyo);
+display(Dubai);
+display(Paris);
