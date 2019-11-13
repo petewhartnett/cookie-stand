@@ -2,57 +2,98 @@
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-var Seattle = {
-    location: 'Seattle',
-    minCustomers: 23,
-    maxCustomers: 65,
-    avgCookies: 6.3,
-};
+City.prototype.render = function (container) {
 
-var Tokyo = {
-    location: 'Tokyo',
-    minCustomers: 3,
-    maxCustomers: 24,
-    avgCookies: 1.2
-};
+    var tableElement = addElement('table', container);
 
-var Dubai = {
-    location: 'Dubai',
-    minCustomers: 11,
-    maxCustomers: 38,
-    avgCookies: 3.7
-};
+    addElement('h2', tableElement, this.cityName);
 
-var Paris = {
-    location: 'Paris',
-    minCustomers: 20,
-    maxCustomers: 38,
-    avgCookies: 2.3
-};
 
-var Lima = {
-    location: 'Lima',
-    minCustomers: 2,
-    maxCustomers: 16,
-    avgCookies: 4.6
-};
+    var tableHeader = addElement('tr', tableElement);
 
+
+    addElement('thead', tableHeader, this.name);
+
+
+    var dataRow = addElement('tr', tableElement);
+
+    addElement('td', dataRow, "Cookies");
+
+    var total = 0;
+
+    for (var i = 0; i < hours.length; i++) {
+        addElement('td', tableHeader, hours[i]);
+
+        var random = Math.floor(Math.random() * (this.max - this.min)) + this.min;
+        var randoms = Math.ceil(random * this.avg);
+        total += randoms;
+        addElement('td', dataRow, randoms);
+    }
+    addElement('td', dataRow, this.name + " total:  " + total);
+}
+
+
+
+
+var parentElem = document.getElementById('stores');
+
+function City(cityName, minCustomers, maxCustomers, avgCookies) {
+    this.name = cityName;
+    this.min = minCustomers;
+    this.max = maxCustomers;
+    this.avg = avgCookies;
+    this.sales = [];
+
+}
+
+var cities = [];
+cities.push(new City('Seattle', 23, 65, 6.3));
+cities.push(new City('Tokyo', 3, 24, 1.2));
+cities.push(new City('Dubai', 11, 38, 3.7));
+cities.push(new City('Paris', 20, 38, 6.3));
+cities.push(new City('Lima', 2, 16, 4.6));
+
+for (var i = 0; i < cities.length; i++) {
+    var city = cities[i];
+    city.render(parentElem);
+
+}
+
+
+City.prototype.getRandomNumb = function () {
+    var random = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers)) + this.minCustomers;
+}
+City.prototype.getCookieCount = function () {
+    var random = Math.ceil(this.getRandomNum * this.avgCookies);
+    return random;
+}
+
+
+
+
+//standalone for element (inspired by class example)
+function addElement(tag, container, text) {
+    var element = document.createElement(tag);
+    container.appendChild(element);
+    element.textContent = text;
+    return element;
+
+}
+/*
 //W3schools.com and stackoverflow were used for research and as inspiration for the random code
 function random(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
-
 }
+
 //parent element
 var parentElem = document.getElementById('stores');
 //article
-var article = document.createElement('article');
-parentElem.appendChild(article);
-//title
-var h1 = document.createElement('h1');
-h1.textContent = "Store Cookie Count";
-article.appendChild(h1);
+
 
 //function begin for displaying average cookies each hour each location
+
+
+
 function display(location) {
 
     var p = document.createElement('p');
@@ -73,9 +114,10 @@ function display(location) {
     li.textContent = 'TOTAL = ' + total;
 }
 
-
 display(Seattle);
 display(Lima);
 display(Tokyo);
 display(Dubai);
 display(Paris);
+
+*/
