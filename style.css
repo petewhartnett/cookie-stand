@@ -1,0 +1,17 @@
+#stores{
+
+    background-color:green;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#salmon{
+    height: 50%;
+    width: 50%;
+   background-color: red;
+}
+
+html{
+
+    background-color: salmon;
+}

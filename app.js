@@ -2,40 +2,52 @@
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+
+
+
+
+
 City.prototype.render = function (container) {
 
-    var tableElement = addElement('table', container);
-
-    addElement('h2', tableElement, this.cityName);
+    
 
 
-    var tableHeader = addElement('tr', tableElement);
-
-
-    addElement('thead', tableHeader, this.name);
+    // addElement('thead', tableHeader, this.name);
 
 
     var dataRow = addElement('tr', tableElement);
 
-    addElement('td', dataRow, "Cookies");
+    addElement('td', dataRow, this.name);
 
     var total = 0;
-
+    
+  
     for (var i = 0; i < hours.length; i++) {
-        addElement('td', tableHeader, hours[i]);
-
+      
         var random = Math.floor(Math.random() * (this.max - this.min)) + this.min;
         var randoms = Math.ceil(random * this.avg);
         total += randoms;
         addElement('td', dataRow, randoms);
     }
     addElement('td', dataRow, this.name + " total:  " + total);
+
 }
 
 
-
-
 var parentElem = document.getElementById('stores');
+var tableElement = addElement('table', parentElem);
+
+// addElement('h2', tableElement, this.cityName);
+
+var tableHeader = addElement('tr', tableElement);
+addElement('td', tableElement);
+for(var i = 0; i < hours.length;i++){
+
+      addElement('td', tableElement, hours[i] );
+}
+   
+
+
 
 function City(cityName, minCustomers, maxCustomers, avgCookies) {
     this.name = cityName;
@@ -45,6 +57,7 @@ function City(cityName, minCustomers, maxCustomers, avgCookies) {
     this.sales = [];
 
 }
+
 
 var cities = [];
 cities.push(new City('Seattle', 23, 65, 6.3));
@@ -60,12 +73,12 @@ for (var i = 0; i < cities.length; i++) {
 }
 
 
-City.prototype.getRandomNumb = function () {
-    var random = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers)) + this.minCustomers;
-}
+
+
 City.prototype.getCookieCount = function () {
-    var random = Math.ceil(this.getRandomNum * this.avgCookies);
-    return random;
+    var random = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers)) + this.minCustomers;
+    var randoms = Math.ceil(randoms * this.avgCookies);
+    this.sales.push(randoms);
 }
 
 
@@ -79,6 +92,28 @@ function addElement(tag, container, text) {
     return element;
 
 }
+
+
+function header(){
+
+
+
+}
+
+function addFooter(){
+    var td = document.createElement('td');
+var footerRow = addElement('tr', tableElement);
+footerRow.appendChild(tr);
+for(var i = 0; i < hours; i++){
+
+
+td.textContent = i;
+
+}
+
+
+}
+addFooter();
 /*
 //W3schools.com and stackoverflow were used for research and as inspiration for the random code
 function random(min, max) {
