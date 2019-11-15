@@ -15,3 +15,18 @@ html{
 
     background-color: salmon;
 }
+
+tr{
+    border: 1px;
+    border-color: red;
+}
+table, th, td{
+    border: 10px;
+    border-color: red;
+}
+
+#stores{
+
+    border: 10px;
+    border-color: red;
+}
