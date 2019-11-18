@@ -1,0 +1,74 @@
+#salmon{
+    height: 50%;
+    width: 50%;
+   background-color: red;
+   margin-top:0%;
+}
+
+html{
+
+    background-color:black;
+}
+
+h2{
+	font-family:Josefin Sans;
+	font-size:50px; 
+	color:salmon;
+}
+
+h3{
+	font-family:Varela Round;
+	font-size:38px;
+	color: salmon;
+}
+
+h4{
+	margin-top:40px;
+	color:white;
+}
+
+#navbar ul { 
+	margin: 0; 
+	padding: 20px; 
+	list-style-type: none; 
+	text-align: center; 
+	background-color:salmon; 
+	font-size: 25px;
+	
+	} 
+
+
+#navbar ul li {  
+	display: inline; 
+	} 
+ 
+#navbar ul li a { 
+	text-decoration: none; 
+	padding: 50px;
+	color:white; 
+	background-color:light grey; 
+	font-family:Kaushan Script;
+	} 
+ 
+#navbar ul li a:hover { 
+	color: black; 
+	background-color:white ; 
+	} 
+
+
+.social-media-button .social-button {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  height: auto;
+  padding: 0;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-weight: normal;
+ 
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;;
+}
