@@ -129,7 +129,7 @@ function submitHandler(event) {
 form.addEventListener('submit', submitHandler);
 
 
-
+var CookieCount = 0;
 
 //footer
 function addFooterRow() {
@@ -138,7 +138,7 @@ function addFooterRow() {
 
 
     for (var i = 0; i < hours.length; i++) {
-        var CookieCount = 0;
+         CookieCount = 0;
         for (var j = 0; j < cities.length; j++) {
             CookieCount += cities[j].City.hourlyCookies[i];
         }
