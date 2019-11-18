@@ -129,7 +129,7 @@ function submitHandler(event) {
 form.addEventListener('submit', submitHandler);
 
 
-
+var CookieCount = 0;
 
 //footer
 function addFooterRow() {
@@ -137,15 +137,24 @@ function addFooterRow() {
     addElement('td', footerRow, "Hour Total");
 
 
+    //place holder test to make sure footer function works, total still not working as of 11/17
     for (var i = 0; i < hours.length; i++) {
-        var CookieCount = 0;
-        for (var j = 0; j < cities.length; j++) {
-            CookieCount += cities[j].City.hourlyCookies[i];
-        }
+        var random = Math.floor(Math.random() * (90 - 50)) + 30;
+        randoms = Math.ceil(random * 8);
 
-        //addElement('td', tfoot, CookieCount);
-        addElement('td', footerRow, CookieCount);
+
+        addElement('td', footerRow, randoms);
+
     }
+    // This is the actual footer function, not currently working
+    // for (var i = 0; i < hours.length; i++) {
+    //      CookieCount = 0;
+    //     for (var j = 0; j < cities.length; j++) {
+    //         CookieCount += cities[j].cities[i].hourlyCookies;
+    //     }
+
+    //     addElement('td', footerRow, CookieCount);
+    // }
 
 }
 addFooterRow();
@@ -166,9 +175,7 @@ cities.push(submitHandler);
 
 function printCities() {
     for (var i = 0; i < cities.length; i++) {
-        var city = cities[i];
-        city.render(parentElem);
-
+        cities[i].render();
     }
 
 }
