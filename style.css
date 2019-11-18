@@ -30,3 +30,9 @@ table, th, td{
     border: 10px;
     border-color: red;
 }
+
+button{
+
+    padding:10px;
+    font-size:20px;
+}
